@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const app = express()
 const { v4: uuidv4 } = require('uuid');
-const port = 3000
+const port = 3000 || process.argv.PORT
 
 let db = JSON.parse(fs.readFileSync(path.join(__dirname, '/Develop/db/db.json')))
 //middleware
