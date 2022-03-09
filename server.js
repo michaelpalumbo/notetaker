@@ -3,7 +3,8 @@ const fs = require('fs')
 const path = require('path')
 const app = express()
 const { v4: uuidv4 } = require('uuid');
-const PORT = process.argv.PORT
+const PORT = process.argv.PORT || 3000
+const host = '0.0.0.0';
 
 let db = JSON.parse(fs.readFileSync(path.join(__dirname, '/Develop/db/db.json')))
 //middleware
@@ -44,6 +45,6 @@ app.delete('/api/notes/:id', (req, res) => {
         }
     }
 })
-app.listen(PORT, ()=> {
+app.listen(PORT, host, ()=> {
     console.log('listening on PORT', PORT)
 })
